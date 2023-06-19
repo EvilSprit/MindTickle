@@ -14,3 +14,9 @@ Testing and validating REST API
 
 Automation Testing Framework  
 - TestNG
+
+What case covered: 
+- EndPoint Testing
+- Request Validation
+- Response Validation
+- Latency Integration Test
