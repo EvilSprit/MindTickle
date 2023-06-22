@@ -1,10 +1,14 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "MindTickle test Suite">
-    <test name = "API Test">
-        <classes>
-            <class name = "org.example.APITests.UserAPITest" />
-            <class name = "org.example.APITests.PetAPITest" />
-        </classes>
+    <test name = "Pet API Test">
+        <packages>
+            <package name = "PetStoreAPITests" />
+        </packages>
+    </test>
+    <test name = "User API Test">
+        <packages>
+            <package name = "UserAPITests" />
+        </packages>
     </test>
 </suite>

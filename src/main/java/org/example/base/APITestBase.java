@@ -1,26 +1,22 @@
-package org.example.Utils;
+package org.example.base;
 
 import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import org.example.Constants.TestConstants;
 import org.testng.TestNG;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
 
 import java.lang.reflect.Method;
 
-/**
- * API Test Base.
- *
- * @author Navneet Anand
- */
 public class APITestBase extends TestNG {
 
     /**
-     * Set the Base URL Before the Suite start
+     * Set the Base URL Before the Class start
      */
     @BeforeSuite
     public void suiteSetup() {
+        RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI = TestConstants.SERVICE_ENDPOINT;
     }
 
@@ -32,20 +28,5 @@ public class APITestBase extends TestNG {
     @BeforeMethod
     public void testSetup(Method method) {
         System.out.println("Method Name -> " + method.getName());
-    }
-
-    /**
-     * Username data provider.
-     *
-     * @return - return object in 2D array
-     */
-    @DataProvider(name = "username")
-    public Object[][] username() {
-        return new Object[][]{
-                {TestConstants.USERNAME_1},
-                {TestConstants.USERNAME_2},
-                {TestConstants.USERNAME_3},
-                {TestConstants.USERNAME_4}
-        };
     }
 }
